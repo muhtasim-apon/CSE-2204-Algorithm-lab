@@ -1,16 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-void dfs(int node, vector<vector<int>>&adj, vector<bool>&visited,vector<bool>&inprocess,bool &iscycle)
+void dfs(int node, vector<vector<int>>&adj, vector<bool>&visited,map<int,int>&parent,bool &iscycle)
 {
     visited[node]=true;
     //if(inprocess[node])iscycle=true;
-    inprocess[node]=true;
+    //inprocess[node]=true;
     for(auto v: adj[node])
     {
-        if(!visited[v])dfs(v,adj,visited,inprocess,iscycle);
-        else if(inprocess[v])iscycle=true;
+        if(!visited[v])
+        {
+            parent[v]=node;
+            dfs(v,adj,visited,parent,iscycle);
+        }
+        else if(v!=parent[node])iscycle=true;
     }
-    inprocess[node]=false;
+    //inprocess[node]=false;
 }
 int main()
 {
@@ -20,12 +24,13 @@ int main()
     vector<bool>visited(n,false);
     vector<bool>inprocess(n,false);
     bool iscycle=false;
+    map<int,int>parent;
     for(int i=1;i<=m;i++)
     {
         int u,v;
         cin>>u>>v;
         adj[u].push_back(v);
-        //adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     for(auto &it: adj)
     {
@@ -33,7 +38,7 @@ int main()
     }
     for(int i=0;i<n;i++)
     {
-        if(!visited[i])dfs(i,adj,visited,inprocess,iscycle);
+        if(!visited[i])dfs(i,adj,visited,parent,iscycle);
     }
     if(iscycle)
     {
