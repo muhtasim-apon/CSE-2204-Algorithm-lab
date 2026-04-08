@@ -24,7 +24,7 @@ int main()
     vector<vector<int>>adj(n);
     vector<bool>visited(n,false),inprocess(n,false);
     vector<int>start(n),finish(n);
-    vector<pair<int,int>>treeedges,backedges,frontedges,crossedges,edges;
+    vector<pair<int,int>>treeedges,backedges,forwardedges,crossedges,edges;
     for(int i=1;i<=m;i++)
     {
         int u,v;
@@ -47,9 +47,9 @@ int main()
     {
         if(treeedgeset.count({x.first,x.second}))continue;
         else if (backedgeset.count({x.first,x.second}))continue;
-        if(start[x.first]<start[x.second] && start[x.second]<finish[x.second] && finish[x.second]<finish[x.first])
+        else if(start[x.first]<start[x.second] && start[x.second]<finish[x.second] && finish[x.second]<finish[x.first])
         {
-            frontedges.push_back({x.first,x.second});
+            forwardedges.push_back({x.first,x.second});
         }
         else crossedges.push_back({x.first,x.second});
     }
@@ -58,7 +58,7 @@ int main()
     cout<<"Backedges are:\n";
     for(auto x:backedgeset)cout<<x.first<<" "<<x.second<<"\n";
     cout<<"Frontedges are:\n";
-    for(auto x:frontedges)cout<<x.first<<" "<<x.second<<"\n";
+    for(auto x:forwardedges)cout<<x.first<<" "<<x.second<<"\n";
     cout<<"Crossedges are:\n";
     for(auto x:crossedges)cout<<x.first<<" "<<x.second<<"\n";
 
