@@ -1,0 +1,1 @@
+{"name":"Local: 04_D","url":"c:\\CSE2-2\\CSE 2204\\lab Tasks\\LAB_03\\04_D.cpp","tests":[{"id":1777446380411,"input":"6\n6\n1 3\n1 2\n2 3\n0 1\n3 4\n5 0\n","output":"0 1\n0 5\n3 4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\CSE2-2\\CSE 2204\\lab Tasks\\LAB_03\\04_D.cpp","group":"local","local":true}
