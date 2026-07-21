@@ -1,0 +1,460 @@
+Md. Tanvir Alam
+•
+Jul 8 (Edited Jul 8)
+Due Jul 8, 12:01 PM
+Problem Description:
+
+Implement the 0/1 Knapsack algorithm in two ways:
+
+Using simple recursion (without memoization).
+Using dynamic programming with memoization (top-down approach).
+
+Run both implementations on the same set of test cases, measure their execution times, and compare the results. Analyze how memoization reduces redundant computations and improves the overall runtime compared to the naive recursive approach.
+
+Test Case Guidelines:
+
+Create at least 10 test cases with varying numbers of items (e.g., 5 to 35 items) and different knapsack capacities.
+Include small, medium, and large inputs to demonstrate the performance difference.
+Generate item weights and values randomly or design them manually, ensuring all weights and values are positive integers.
+Use the same test cases for both implementations to ensure a fair runtime comparison.
+Record the execution time for each test case and present the results in a table or graph.
+
+A. Dijkstra
+CPU: 1s
+Memory: 512MB
+Given an undirected weighted graph find shortest path of each node from the node 0.
+
+Input
+First Line: N ( 0<N<=100000), number of nodes. Second Line: M ( 0<N<=300000), number of edges. Next M lines, each: U V W(0<=U, V<N), defines an edge between U and V with weight W.
+
+Output
+Shortest path of each node. If any node is not reachable, print Infinity. See sample for clarification.
+
+Sample
+Input
+
+7
+6
+1 3 2
+1 2 5
+0 1 3
+3 2 1
+3 4 50
+2 5 10
+
+Output
+
+0: 0
+1: 3
+2: 6
+3: 5
+4: 55
+5: 16
+6: Infinity
+
+B. Path of Dijkstra
+
+CPU: 1s
+Memory: 512MB
+
+Given an undirected weighted graph print the shortest path of node 1 from the node 0. If there are multiple shortest paths, print the lexicographically smallest one.
+
+Input
+
+First line: N (0<N<=100000), number of nodes. Second line: M ( 0<N<=300000), number of edges. Next M lines, each: U V W(0<=U, V<N), defines an edge between U and V with weight W.
+
+Output
+
+Shortest path of node 1. If node 1 is not reachable, print “Not Reachable”. See sample for clarification
+
+Sample
+
+Input
+
+7
+6
+4 3 2
+4 2 5
+0 4 3
+3 2 1
+3 6 50
+2 1 10
+
+Output
+
+0
+4
+3
+2
+1
+
+
+Practice Lab
+
+Submit all of your cpp files.
+Submission format: roll_problem.cpp
+Example: 61_A.cpp
+
+A. Strongly Connected Components (SCC)
+Given a directed graph find its strongly connected components.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge from U to V.
+
+Output:
+Strongly Connected Components.
+
+Sample Input:
+8
+8
+1 3
+0 1
+3 0
+3 7
+7 3
+5 6
+6 4
+6 5
+
+Sample Output:
+6 5
+4
+2
+1 7 3 0
+
+
+B. Edge Classification
+Given a directed graph, classify its edges. You should run DFS in increasing order. The graph will not contain multiple edges between a pair of nodes.
+
+Input:
+First line: N (0<N<=100), number of nodes.
+Second line: M (0<N<=4950), number of edges.
+Next M lines, each: U V (0<=U, V<N), define an edge from U to V.
+
+Output:
+Edge classifications. Print edges in increasing order.
+
+Sample Input:
+6
+7
+0 1
+1 2
+2 0
+2 3
+0 3
+4 5
+5 1
+
+Sample Output:
+0 1 (T)
+0 3 (F)
+1 2 (T)
+2 0 (B)
+2 3 (T)
+4 5 (T)
+5 1 (C)
+
+
+
+
+C. Articulation Points
+Given an undirected graph find all of its articulation points.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge between U and V.
+
+Output:
+List all the articulation points in increasing order.
+
+Sample Input:
+6
+5
+1 3
+1 2
+0 1
+3 4
+2 5
+
+Sample Output:
+1
+2
+3
+
+
+
+D. Bridges
+Given an undirected graph find all of its bridges.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge between U and V.
+
+Output:
+List all the bridges in increasing order.
+
+Sample Input:
+6
+6
+1 3
+1 2
+2 3
+0 1
+3 4
+5 0
+
+Sample Output:
+0 1
+0 5
+3 4
+
+
+
+E. Topological Order
+Given a directed acyclic graph (DAG) find a valid topological order.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge from U to V.
+
+Output:
+Topological Order.
+
+Sample Input:
+6
+5
+1 3
+1 2
+0 1
+3 4
+2 5
+
+Sample Output:
+0
+1
+2
+5
+3
+4
+
+Problem A: Permutation
+Given N values, print all permutations of 1 to N, where:
+1. No two even numbers are adjacent.
+2. No two odd numbers are adjacent.
+3. Difference between two adjacent numbers is less than 5.
+Input
+First line: N (0 < N <= 20).
+Output
+List all the permutations increasing order. See sample for clarification.
+Sample
+Input:
+1
+Output:
+1
+Input:
+2
+Output:
+1 2
+2 1
+Input:
+4
+Output:
+1 2 3 4
+1 4 3 2
+2 1 4 3
+2 3 4 1
+3 2 1 4
+3 4 1 2
+4 1 2 3
+4 3 2 1
+
+Problem B: DFS Again
+Given an unweighted undirected graph, run DFS and find the components with discovery
+time and finishing time. Assume that you are running DFS in increasing order.
+Input
+First line: N (0 < N <= 1000), number of nodes.
+Second line: M (0 < M <= 20000), number of edges.
+Next M lines: each contains U V (0 <= U, V < N), defines an edge between U and V.
+Output
+Total N lines, each for one node. Print the discovery time and finishing time for each node.
+Sample
+Input:
+6
+6
+1 2
+1 3
+0 4
+2 3
+5 4
+5 0
+Output:
+0: 1 6
+1: 7 12
+2: 8 11
+3: 9 10
+4: 2 5
+5: 3 4
+
+
+
+Practice Lab
+
+Submit all of your cpp files.
+Submission format: roll_problem.cpp
+Example: 61_A.cpp
+
+A. Strongly Connected Components (SCC)
+Given a directed graph find its strongly connected components.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge from U to V.
+
+Output:
+Strongly Connected Components.
+
+Sample Input:
+8
+8
+1 3
+0 1
+3 0
+3 7
+7 3
+5 6
+6 4
+6 5
+
+Sample Output:
+6 5
+4
+2
+1 7 3 0
+
+
+B. Edge Classification
+Given a directed graph, classify its edges. You should run DFS in increasing order. The graph will not contain multiple edges between a pair of nodes.
+
+Input:
+First line: N (0<N<=100), number of nodes.
+Second line: M (0<N<=4950), number of edges.
+Next M lines, each: U V (0<=U, V<N), define an edge from U to V.
+
+Output:
+Edge classifications. Print edges in increasing order.
+
+Sample Input:
+6
+7
+0 1
+1 2
+2 0
+2 3
+0 3
+4 5
+5 1
+
+Sample Output:
+0 1 (T)
+0 3 (F)
+1 2 (T)
+2 0 (B)
+2 3 (T)
+4 5 (T)
+5 1 (C)
+
+
+
+
+C. Articulation Points
+Given an undirected graph find all of its articulation points.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge between U and V.
+
+Output:
+List all the articulation points in increasing order.
+
+Sample Input:
+6
+5
+1 3
+1 2
+0 1
+3 4
+2 5
+
+Sample Output:
+1
+2
+3
+
+
+
+D. Bridges
+Given an undirected graph find all of its bridges.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge between U and V.
+
+Output:
+List all the bridges in increasing order.
+
+Sample Input:
+6
+6
+1 3
+1 2
+2 3
+0 1
+3 4
+5 0
+
+Sample Output:
+0 1
+0 5
+3 4
+
+
+
+E. Topological Order
+Given a directed acyclic graph (DAG) find a valid topological order.
+
+Input:
+First line: N (0<N<=100000), number of nodes.
+Second line: M (0<N<=300000), number of edges.
+Next M lines, each: U V (0<=U, V<N), defines an edge from U to V.
+
+Output:
+Topological Order.
+
+Sample Input:
+6
+5
+1 3
+1 2
+0 1
+3 4
+2 5
+
+Sample Output:
+0
+1
+2
+5
+3
+4
+
+
+
+
